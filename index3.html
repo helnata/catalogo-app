@@ -45,7 +45,7 @@
         margin-bottom: 20px;
       }
 
-      .item {
+      .lista-produtos {
         border-bottom: 1px dashed #444;
         padding: 10px 0;
         display: flex;
@@ -183,8 +183,7 @@
       <div class="subheader">Clique em "Mostrar foto"</div>
 
       <!-- ITEM -->
-      <div id="item">
-      </div>
+      <div id="lista-produtos"></div>
 
       <!-- FOOTER -->
       <div class="footer">
@@ -204,9 +203,6 @@
 
       <div class="warning">⚠️ Tabela válida enquanto durar o estoque</div>
     </div>
-      </div>
-
-
 
     <!-- MODAL -->
     <div class="modal" id="modal" onclick="closeModal()">
@@ -214,7 +210,7 @@
       <img id="modalImg" />
     </div>
 
-        <script>
+    <script>
       function openModal(src) {
         const img = document.getElementById("modalImg");
         img.src = src;
@@ -256,7 +252,7 @@
       }
 
       carregarDados().then((dados) => {
-        const container = document.getElementById("item");
+        const container = document.getElementById("lista-produtos");
 
         if (!dados) {
           container.innerHTML = "Erro ao carregar.";
