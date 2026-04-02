@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabela Premium</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        background: #0b0b0b;
+        font-family: "Montserrat", sans-serif;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 500px;
+        width: 100%;
+        background: linear-gradient(145deg, #111, #1a1a1a);
+        border: 3px solid #c9a646;
+        border-radius: 12px;
+        box-shadow: 0 0 25px rgba(201, 166, 70, 0.3);
+        padding: 20px;
+      }
+
+      .header {
+        text-align: center;
+        font-weight: 900;
+        font-size: 22px;
+        color: #f5d06f;
+      }
+
+      .subheader {
+        text-align: center;
+        font-size: 12px;
+        color: #ccc;
+        margin-bottom: 20px;
+      }
+
+      .item {
+        border-bottom: 1px dashed #444;
+        padding: 10px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .name {
+        font-size: 14px;
+        flex: 1;
+        word-break: break-word;
+      }
+
+      .price {
+        color: #f5d06f;
+        font-weight: bold;
+        white-space: nowrap;
+      }
+
+      .link {
+        font-size: 12px;
+        color: #c9a646;
+        cursor: pointer;
+        align-self: flex-start;
+      }
+
+      .link:hover {
+        text-decoration: underline;
+      }
+
+      /* MODAL */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+
+      .modal img {
+        width: auto;
+        height: auto;
+        max-width: 90vw;
+        max-height: 90vh;
+        object-fit: contain;
+        border: 3px solid #c9a646;
+        border-radius: 10px;
+      }
+
+      .modal.active {
+        display: flex;
+      }
+
+      .close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      .footer {
+        margin-top: 20px;
+        padding: 12px 14px;
+        background: rgba(201, 166, 70, 0.12);
+        border: 1px solid rgba(201, 166, 70, 0.5);
+        border-radius: 8px;
+        color: #f5d06f;
+        font-size: 13px;
+        line-height: 1.8;
+      }
+
+      .footer-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .footer-item:hover {
+        padding-left: 8px;
+        color: #fff;
+      }
+
+      .footer-icon {
+        font-size: 16px;
+        display: inline-block;
+        transition: transform 0.3s ease;
+      }
+
+      .footer-item:hover .footer-icon {
+        transform: scale(1.2) rotate(10deg);
+      }
+
+      .footer b {
+        color: #fff;
+      }
+
+      .warning {
+        margin-top: 12px;
+        padding: 8px 12px;
+        color: #ffcc00;
+        font-size: 12px;
+        text-align: center;
+        font-weight: 700;
+        background: rgba(255, 204, 0, 0.1);
+        border: 1px solid rgba(255, 204, 0, 0.3);
+        border-radius: 6px;
+        transition: all 0.3s ease;
+      }
+
+      .warning:hover {
+        background: rgba(255, 204, 0, 0.15);
+        border-color: rgba(255, 204, 0, 0.5);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">TABELA PREMIUM</div>
+      <div class="subheader">Clique em "Mostrar foto"</div>
+
+      <!-- ITEM -->
+      <div class="item">
+        <div class="top">
+          <div class="name">TG 15mg (4 ampolas)</div>
+          <div class="price">R$ 660</div>
+        </div>
+        <div
+          class="link"
+          onclick="
+            openModal(
+              'https://tirzebrasil.com.br/wp-content/uploads/2025/10/img_2714.jpeg',
+            )
+          "
+        >
+          Mostrar foto
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="top">
+          <div class="name">LIPOLESS</div>
+          <div class="price">R$ 610</div>
+        </div>
+        <div
+          class="link"
+          onclick="
+            openModal(
+              'https://buscaparaguai.com.br/original/uploads/WEBP/2025/12/02/VEWIBO_1764652021.webp',
+            )
+          "
+        >
+          Mostrar foto
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="footer">
+        <div class="footer-item">
+          <span class="footer-icon">💳</span>
+          Pagamento via Pix
+        </div>
+        <div class="footer-item">
+          <span class="footer-icon">💰</span>
+          Cartão com taxas adicionais
+        </div>
+        <div class="footer-item">
+          <span class="footer-icon">📊</span>
+          Parcelamento disponível
+        </div>
+      </div>
+
+      <div class="warning">⚠️ Tabela válida enquanto durar o estoque</div>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal" onclick="closeModal()">
+      <span class="close">×</span>
+      <img id="modalImg" />
+    </div>
+
+    <script>
+      function openModal(src) {
+        const img = document.getElementById("modalImg");
+        img.src = src;
+        img.style.width = "auto";
+        img.style.height = "auto";
+        document.getElementById("modal").classList.add("active");
+      }
+
+      function closeModal() {
+        document.getElementById("modal").classList.remove("active");
+      }
+
+      const sheetId = "1lUdNf99DFDRqibMtdHQcigDaM5FzKP87KRTyDNd_lxY";
+      // Mudamos o final para exportar como JSON
+      const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json`;
+
+      async function carregarDados() {
+        try {
+          const resposta = await fetch(url);
+          const texto = await resposta.text();
+
+          // A API do Google retorna um texto com um prefixo: /*O_o*/ google.visualization.Query.setResponse({...});
+          // Precisamos extrair apenas o que está dentro dos parênteses { ... }
+          const inicio = texto.indexOf("{");
+          const fim = texto.lastIndexOf("}") + 1;
+          const jsonString = texto.substring(inicio, fim);
+
+          const json = JSON.parse(jsonString);
+
+          // Mapeando as colunas e linhas para um formato amigável (Array de Objetos)
+          const colunas = json.table.cols.map((col) => col.label);
+          const dadosFormatados = json.table.rows.map((row) => {
+            let objeto = {};
+            row.c.forEach((cell, i) => {
+              objeto[colunas[i] || `coluna_${i}`] = cell ? cell.v : null;
+            });
+            return objeto;
+          });
+
+          console.log("Dados Carregados com Sucesso:", dadosFormatados);
+        } catch (erro) {
+          console.error("Erro ao contornar o CORS:", erro);
+        }
+      }
+
+      carregarDados();
+    </script>
+  </body>
+</html>
