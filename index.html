@@ -257,8 +257,7 @@
 
       carregarDados().then((dados) => {
         const container = document.getElementById("item");
-        console.log(dados);
-        
+       
         if (!dados) {
           container.innerHTML = "Erro ao carregar.";
           return;
