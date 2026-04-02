@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meu Catálogo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        line-height: 1.6;
+      }
+      .item {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+      }
+      h1 {
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Catálogo de Produtos</h1>
+    <div id="lista-produtos">Carregando itens do Google Sheets...</div>
+
+    <script src="app.js"></script>
+    <script>
+      // Chama a função definida no app.js e renderiza na tela
+      carregarDados().then((dados) => {
+        const container = document.getElementById("lista-produtos");
+        if (!dados) {
+          container.innerHTML = "Erro ao carregar dados. Verifique o console.";
+          return;
+        }
+
+        container.innerHTML = dados
+          .map(
+            (item) => `
+                <div class="item">
+                    ${Object.entries(item)
+                      .map(
+                        ([key, val]) =>
+                          `<strong>${key}:</strong> ${val || "N/A"}<br>`,
+                      )
+                      .join("")}
+                </div>
+            `,
+          )
+          .join("");
+      });
+    </script>
+  </body>
+</html>

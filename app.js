@@ -23,7 +23,6 @@ async function carregarDados() {
         objeto[colunas[i] || `coluna_${i}`] = cell ? cell.v : null;
       });
       return objeto;
-      git;
     });
     console.log("Dados Carregados com Sucesso:", dadosFormatados);
     return dadosFormatados;
