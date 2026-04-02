@@ -273,10 +273,7 @@
             <div class="price">R$ ${item.preco || item.valor || "-"}</div>
           </div>
 
-          ${
-            item.imagem
-              ? `<div class="link" onclick="openModal('${item.foto}')">Mostrar foto</div>`
-              : ""
+          ${`<div class="link" onclick="openModal('${item.foto}')">Mostrar foto</div>`
           }
         </div>
       `,
