@@ -250,7 +250,7 @@
             });
             return objeto;
           });
-
+    console.log(dadosFormatados)
           return dadosFormatados;
         } catch (erro) {
           console.error("Erro:", erro);
@@ -272,7 +272,7 @@
         <div class="item">
           <div class="top">
             <div class="name">${item.nome || item.produto || "Produto"}</div>
-            <div class="price">R$ ${item.preco || item.valorVip || "-"}</div>
+            <div class="price">R$ ${item.valorVip || "A Consultar"}</div>
           </div>
 
           ${`<div class="link" onclick="openModal('${item.foto || semFoto}')">Mostrar foto</div>`
