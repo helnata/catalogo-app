@@ -217,6 +217,7 @@
     </div>
 
         <script>
+
           const semFoto = "https://www2.camara.leg.br/atividade-legislativa/comissoes/comissoes-permanentes/cindra/imagens/sem.jpg.gif";
       function openModal(src) {
         const img = document.getElementById("modalImg");
@@ -250,7 +251,6 @@
             });
             return objeto;
           });
-    console.log(dadosFormatados)
           return dadosFormatados;
         } catch (erro) {
           console.error("Erro:", erro);
@@ -271,11 +271,11 @@
             (item) => `
         <div class="item">
           <div class="top">
-            <div class="name">${item.coluna_0 || item.produto || "Produto"}</div>
-            <div class="price">R$ ${item.coluna_1 || item.valorVip || "A Consultar"}</div>
+            <div class="name">${item.produto || "Item não Encontrado"}</div>
+            <div class="price">R$ ${item.valorVip || "A Consultar"}</div>
           </div>
 
-          ${`<div class="link" onclick="openModal('${item.coluna_3 ||item.foto || semFoto}')">Mostrar foto</div>`
+          ${`<div class="link" onclick="openModal('${item.foto || semFoto}')">Mostrar foto</div>`
           }
         </div>
       `,
